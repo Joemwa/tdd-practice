@@ -9,7 +9,11 @@
 */
 
 function canAdmitToNightClub(person) {
-  return true;
+  if (person.age > 18) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 test("should return true for person over 18", () => {
@@ -25,3 +29,5 @@ test("should return false for person under 18", () => {
   };
   expect(canAdmitToNightClub(personUnder18)).toEqual(false);
 });
+
+// test("should return false for a person who is inebriated", ())
