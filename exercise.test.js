@@ -37,7 +37,7 @@ test("should return false for person under 18", () => {
 test("should return false for a person who is inebriated", () => {
   const personVisiblyInebriated = {
     age: 34,
-    isAccompaniedByAdult: true,
+    isAccompaniedByAdult: false,
     isVisiblyInebriated: true,
   };
   expect(canAdmitToNightClub(personVisiblyInebriated)).toEqual(false);
