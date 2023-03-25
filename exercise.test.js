@@ -9,7 +9,7 @@
 */
 
 function canAdmitToNightClub(person) {
-  if (person.age > 18) {
+  if (person.age > 18 && person.isVisiblyInebriated === false) {
     return true;
   } else {
     return false;
@@ -19,6 +19,8 @@ function canAdmitToNightClub(person) {
 test("should return true for person over 18", () => {
   const personOver18 = {
     age: 30,
+    isAccompaniedByAdult: true,
+    isVisiblyInebriated: false,
   };
   expect(canAdmitToNightClub(personOver18)).toEqual(true);
 });
@@ -26,8 +28,17 @@ test("should return true for person over 18", () => {
 test("should return false for person under 18", () => {
   const personUnder18 = {
     age: 17,
+    isAccompaniedByAdult: true,
+    isVisiblyInebriated: false,
   };
   expect(canAdmitToNightClub(personUnder18)).toEqual(false);
 });
 
-// test("should return false for a person who is inebriated", ())
+test("should return false for a person who is inebriated", () => {
+  const personVisiblyInebriated = {
+    age: 34,
+    isAccompaniedByAdult: true,
+    isVisiblyInebriated: true,
+  };
+  expect(canAdmitToNightClub(personVisiblyInebriated)).toEqual(false);
+});
