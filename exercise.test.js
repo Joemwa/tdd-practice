@@ -8,9 +8,20 @@
   - isVisiblyInebriated (Boolean)
 */
 
+function canAdmitToNightClub(person) {
+  return true;
+}
+
 test("should return true for person over 18", () => {
   const personOver18 = {
     age: 30,
   };
   expect(canAdmitToNightClub(personOver18)).toEqual(true);
+});
+
+test("should return false for person under 18", () => {
+  const personUnder18 = {
+    age: 17,
+  };
+  expect(canAdmitToNightClub(personUnder18)).toEqual(false);
 });
